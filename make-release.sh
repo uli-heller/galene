@@ -8,9 +8,8 @@ test -z "${TAG}" && {
 }
 test "${VERSION}" != "${TAG}" && {
     RC="$(echo "${VERSION}"|sed -e "s/^${TAG}//"|cut -d- -f2)"
-    VERSION="${TAG}-rc$(printf "%02d" "${RC}")"
+    VERSION="${TAG}.$(printf "%03d" "${RC}")"
 }
-
 rm -rf vendor
 rm -rf galene
 rm -rf build
